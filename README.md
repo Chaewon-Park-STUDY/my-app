@@ -60,7 +60,7 @@
 ## 🛠 기술 스택
 
 - **형태**: PWA (Progressive Web App)
-- **개발 환경**: Windows
+- **개발 환경**: Windows + VS Code
 - **프론트엔드**: React
 - **저장소**: Google Drive API (무료 15GB)
 - **인증**: Google OAuth 2.0
@@ -74,7 +74,13 @@
 - [x] 유사 앱 조사 완료
 - [x] 현실 제약 반영 (PWA 방식 확정)
 - [x] 백엔드 저장소 확정 (Google Drive API)
-- [ ] Google Cloud Console 세팅
-- [ ] UI 와이어프레임
-- [ ] 프로토타입 개발
+- [x] Google Cloud Console 프로젝트 생성 (my-app)
+- [x] Google Drive API 활성화
+- [x] OAuth 2.0 클라이언트 ID 발급 완료
+- [ ] React 프로젝트 세팅 (npx create-react-app)
+- [ ] Google OAuth 로그인 구현
+- [ ] 동영상 업로드 기능 구현
+- [ ] 동영상 목록 및 다운로드 기능 구현
+- [ ] 토마토 UI 디자인
+- [ ] PWA 설정 (홈 화면 추가)
 

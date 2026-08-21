@@ -61,9 +61,9 @@
 
 - **형태**: PWA (Progressive Web App)
 - **개발 환경**: Windows + VS Code
-- **프론트엔드**: React
+- **프론트엔드**: React (create-react-app)
 - **저장소**: Google Drive API (무료 15GB)
-- **인증**: Google OAuth 2.0
+- **인증**: Google OAuth 2.0 (@react-oauth/google)
 - **개발 방식**: 바이브코딩
 
 ---
@@ -77,8 +77,10 @@
 - [x] Google Cloud Console 프로젝트 생성 (my-app)
 - [x] Google Drive API 활성화
 - [x] OAuth 2.0 클라이언트 ID 발급 완료
-- [ ] React 프로젝트 세팅 (npx create-react-app)
-- [ ] Google OAuth 로그인 구현
+- [x] React 프로젝트 세팅 (create-react-app)
+- [x] @react-oauth/google 패키지 설치
+- [x] Google OAuth 로그인 화면 구현 (App.js)
+- [ ] 로그인 후 Google Drive 연동
 - [ ] 동영상 업로드 기능 구현
 - [ ] 동영상 목록 및 다운로드 기능 구현
 - [ ] 토마토 UI 디자인

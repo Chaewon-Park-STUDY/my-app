@@ -1,70 +1,88 @@
-# Getting Started with Create React App
+# 🍅 My App — 동영상 보관함
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> 아이폰 갤러리 용량 절약을 위한 동영상 전용 클라우드 저장 PWA
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 💡 탄생 배경
 
-### `npm start`
+아이폰 갤러리 용량이 부족해서, 사진은 네이버 블로그에 올리고 갤러리에서 삭제하는 방식으로 관리 중.
+- 블로그에 올린 사진 → 블로그에서 다시 다운로드 가능 ✅
+- 블로그에 올린 동영상 → 재생만 가능, 다운로드 불가 ❌
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+**→ 동영상만 따로 클라우드에 저장하고, 필요할 때 갤러리로 다시 받을 수 있는 앱**
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🎯 핵심 기능
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 업로드 플로우
+1. 갤러리에서 동영상 선택 → iOS 공유 버튼(Share Sheet)으로 앱에 전송
+2. 앱이 동영상을 Google Drive에 업로드
+3. 업로드 완료 후 갤러리에서 수동으로 삭제 (용량 확보)
 
-### `npm run build`
+### 다운로드 플로우
+1. 앱 내 동영상 목록에서 원하는 영상 선택
+2. 내 갤러리로 다운로드 (원본 화질 유지)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## ⚠️ 현실 제약 사항 (PWA 한계)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| 원래 원했던 기능 | PWA 가능 여부 | 대안 |
+|---|---|---|
+| 갤러리에서 직접 불러오기 | ❌ iOS 갤러리 접근 권한 없음 | Share Sheet으로 동영상 공유 |
+| 잘라내기 (갤러리 자동 삭제) | ❌ 웹에서 파일 삭제 불가 | 업로드 후 수동 삭제 |
+| 고화질 영상 앱 내 캐시 | ❌ PWA 저장 한도 50MB | Google Drive 스트리밍으로 대체 |
 
-### `npm run eject`
+> 맥이 없어 네이티브 iOS 앱 개발이 불가한 현실적 제약으로 PWA 방식 채택.
+> 추후 맥 환경이 생기면 네이티브 앱으로 전환 고려.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## ✅ 핵심 가치
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **편리성 최우선** — Share Sheet 한 번으로 업로드, 목록에서 바로 다운로드
+- **원본 화질 유지** — 압축 없이 고해상도 그대로 보관
+- **동영상 전용** — 사진은 블로그, 동영상은 이 앱
+- **완전 무료** — Google Drive 15GB 무료 용량 활용
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🎨 UI 컨셉
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **토마토 캐릭터 테마** 🍅
+- 귀엽고 심플한 디자인
+- PWA — Safari에서 "홈 화면에 추가" 하면 앱처럼 사용
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 🛠 기술 스택
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- **형태**: PWA (Progressive Web App)
+- **개발 환경**: Windows + VS Code
+- **프론트엔드**: React (create-react-app)
+- **저장소**: Google Drive API (무료 15GB)
+- **인증**: Google OAuth 2.0 (@react-oauth/google)
+- **개발 방식**: 바이브코딩
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 📌 진행 현황
 
-### Making a Progressive Web App
+- [x] 아이디어 구체화
+- [x] 유사 앱 조사 완료
+- [x] 현실 제약 반영 (PWA 방식 확정)
+- [x] 백엔드 저장소 확정 (Google Drive API)
+- [x] Google Cloud Console 프로젝트 생성 (my-app)
+- [x] Google Drive API 활성화
+- [x] OAuth 2.0 클라이언트 ID 발급 완료
+- [x] React 프로젝트 세팅 (create-react-app)
+- [x] @react-oauth/google 패키지 설치
+- [x] Google OAuth 로그인 화면 구현 (App.js)
+- [ ] 로그인 후 Google Drive 연동
+- [ ] 동영상 업로드 기능 구현
+- [ ] 동영상 목록 및 다운로드 기능 구현
+- [ ] 토마토 UI 디자인
+- [ ] PWA 설정 (홈 화면 추가)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

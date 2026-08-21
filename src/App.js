@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { GoogleOAuthProvider, useGoogleLogin } from '@react-oauth/google';
 
 function VideoApp() {
@@ -6,13 +6,29 @@ function VideoApp() {
   const [videos, setVideos] = useState([]);
   const [uploading, setUploading] = useState(false);
 
+  useEffect(() => {
+    const saved = localStorage.getItem('google_token');
+    if (saved) {
+      const token = JSON.parse(saved);
+      setUser(token);
+      loadVideos(token.access_token);
+    }
+  }, []);
+
   const login = useGoogleLogin({
     onSuccess: (tokenResponse) => {
+      localStorage.setItem('google_token', JSON.stringify(tokenResponse));
       setUser(tokenResponse);
       loadVideos(tokenResponse.access_token);
     },
     scope: 'https://www.googleapis.com/auth/drive.file',
   });
+
+  const logout = () => {
+    localStorage.removeItem('google_token');
+    setUser(null);
+    setVideos([]);
+  };
 
   const loadVideos = async (token) => {
     const res = await fetch(
@@ -70,6 +86,10 @@ function VideoApp() {
       ) : (
         <>
           <p>✅ 로그인 완료!</p>
+          <button onClick={logout} style={{ marginBottom: '10px', padding: '5px 10px', cursor: 'pointer' }}>
+            로그아웃
+          </button>
+          <br />
           <input
             type="file"
             accept="video/*"

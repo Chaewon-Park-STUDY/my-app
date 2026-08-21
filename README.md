@@ -2,6 +2,8 @@
 
 > 아이폰 갤러리 용량 절약을 위한 동영상 전용 클라우드 저장 PWA
 
+🌐 **배포 주소**: https://my-app-blush-nine-29.vercel.app
+
 ---
 
 ## 💡 탄생 배경
@@ -42,7 +44,7 @@
 
 ## ✅ 핵심 가치
 
-- **편리성 최우선** — Share Sheet 한 번으로 업로드, 목록에서 바로 다운로드
+- **편리성 최우선** — 로그인 후 바로 업로드/다운로드 가능
 - **원본 화질 유지** — 압축 없이 고해상도 그대로 보관
 - **동영상 전용** — 사진은 블로그, 동영상은 이 앱
 - **완전 무료** — Google Drive 15GB 무료 용량 활용
@@ -64,6 +66,7 @@
 - **프론트엔드**: React (create-react-app)
 - **저장소**: Google Drive API (무료 15GB)
 - **인증**: Google OAuth 2.0 (@react-oauth/google)
+- **배포**: Vercel (무료)
 - **개발 방식**: 바이브코딩
 
 ---
@@ -74,15 +77,16 @@
 - [x] 유사 앱 조사 완료
 - [x] 현실 제약 반영 (PWA 방식 확정)
 - [x] 백엔드 저장소 확정 (Google Drive API)
-- [x] Google Cloud Console 프로젝트 생성 (my-app)
+- [x] Google Cloud Console 프로젝트 생성
 - [x] Google Drive API 활성화
 - [x] OAuth 2.0 클라이언트 ID 발급 완료
-- [x] React 프로젝트 세팅 (create-react-app)
-- [x] @react-oauth/google 패키지 설치
-- [x] Google OAuth 로그인 화면 구현 (App.js)
-- [ ] 로그인 후 Google Drive 연동
-- [ ] 동영상 업로드 기능 구현
-- [ ] 동영상 목록 및 다운로드 기능 구현
-- [ ] 토마토 UI 디자인
+- [x] React 프로젝트 세팅
+- [x] Google OAuth 로그인 구현
+- [x] 동영상 업로드 기능 구현
+- [x] 동영상 목록 및 다운로드 기능 구현
+- [x] Vercel 배포 완료
+- [ ] 모바일 접속 테스트
+- [ ] Google Cloud Console에 Vercel 주소 승인 추가
+- [ ] 토마토 UI 디자인 개선
 - [ ] PWA 설정 (홈 화면 추가)
 
